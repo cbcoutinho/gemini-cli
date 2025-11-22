@@ -33,6 +33,9 @@ import type { UpdateObject } from '../utils/updateCheck.js';
 export interface ProQuotaDialogRequest {
   failedModel: string;
   fallbackModel: string;
+  message: string;
+  isTerminalQuotaError: boolean;
+  isModelNotFoundError?: boolean;
   resolve: (intent: FallbackIntent) => void;
 }
 
@@ -135,6 +138,11 @@ export interface UIState {
   copyModeEnabled: boolean;
   mcpSamplingRequest: McpSamplingRequest | null;
   warningMessage: string | null;
+  bannerData: {
+    defaultText: string;
+    warningText: string;
+  };
+  bannerVisible: boolean;
   customDialog: React.ReactNode | null;
   authState: AuthState;
 }
