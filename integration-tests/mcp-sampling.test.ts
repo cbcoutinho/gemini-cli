@@ -233,10 +233,11 @@ describe('mcp-sampling', () => {
   });
 
   it('should use the sample tool and get a response', async () => {
-    const child = rig.run(
-      "Use the sample tool to ask 'what is the capital of France?'",
-      ['--auto-confirm-mcp-sampling'],
-    );
+    // Use env var to auto-confirm MCP sampling requests during testing
+    const child = rig.run({
+      args: "Use the sample tool to ask 'what is the capital of France?'",
+      env: { GEMINI_AUTO_CONFIRM_MCP_SAMPLING: 'true' },
+    });
 
     const foundToolCall = await rig.waitForToolCall('sample');
     expect(foundToolCall, 'Expected to find a sample tool call').toBeTruthy();

@@ -1609,7 +1609,6 @@ describe('connectToMcpServer with OAuth', () => {
   let mockAuthProvider: MCPOAuthProvider;
   let mockTokenStorage: MCPOAuthTokenStorage;
   const mockConfig = {
-    getAutoConfirmMcpSampling: () => false,
     getGeminiClient: () => ({
       generateContent: vi.fn(),
     }),
@@ -1751,7 +1750,6 @@ describe('connectToMcpServer - HTTP→SSE fallback', () => {
   let workspaceContext: WorkspaceContext;
   let testWorkspace: string;
   const mockConfig = {
-    getAutoConfirmMcpSampling: () => false,
     getGeminiClient: () => ({
       generateContent: vi.fn(),
     }),
@@ -1886,7 +1884,6 @@ describe('connectToMcpServer - OAuth with transport fallback', () => {
   let mockAuthProvider: MCPOAuthProvider;
   let mockTokenStorage: MCPOAuthTokenStorage;
   const mockConfig = {
-    getAutoConfirmMcpSampling: () => false,
     getGeminiClient: () => ({
       generateContent: vi.fn(),
     }),
